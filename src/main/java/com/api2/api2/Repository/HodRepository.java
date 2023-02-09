@@ -6,5 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 public interface HodRepository extends JpaRepository<HOD,Integer> {
-    public HOD findByBranch(String branch);
+     @Query(value = "select * from hod b where b.branch =:branch", nativeQuery = true)
+    HOD findByBranch(String branch);
 }
